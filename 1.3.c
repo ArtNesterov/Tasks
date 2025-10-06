@@ -15,8 +15,8 @@ double getS(const double Sila, const double Rabota);
  */
 int main() {
 	setlocale(LC_ALL, "Russian");
-	double Sila;
-	double Rabota;
+	double Sila = 0;
+	double Rabota = 0;
 	printf("Введите работу в МДж: ");
 	scanf_s("%lf", &Rabota);
 	printf("Введите силу тяги в кН: ");
