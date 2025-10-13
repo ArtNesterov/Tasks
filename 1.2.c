@@ -17,7 +17,7 @@ double getVolume(const double radius, const double angle);
  * @param angle - переменная со значением угла
  * @return рассчитанное значение площади
  */
-double getArea(double radius, double angle);
+double getArea(const double radius, const double angle);
 
 /**
  * @brief - точка входа
