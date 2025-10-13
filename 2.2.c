@@ -42,5 +42,6 @@ double getValue()
 
 double getFunction(const double x, const double a) {
     if (x > 1) return log10(x + 1);
-    if (x<= 1) return sin(2) * sqrt(abs(a * x));
+    return sin(2) * sqrt(abs(a * x));
+
 }
