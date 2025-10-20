@@ -81,7 +81,7 @@ double getY(const double x) {
 
 bool defineOOF(const double x)
 {
-	double rad = x * M_PI/180;
-	return rad != M_PI / 2 && rad!= 3 * M_PI / 2;
+	return !fabs(cos(x))<DBL_EPSILON;
 
 }
+
