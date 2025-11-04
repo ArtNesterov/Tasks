@@ -35,7 +35,7 @@ bool defineOOF(const double x);
 
 /**
     @brief  точка входа в программу
-    @retval 0 если программа выполнена корректно 
+    @return 0 если программа выполнена корректно 
 **/
 int main() {
 	SetConsoleCP(1251);
@@ -87,5 +87,6 @@ bool defineOOF(const double x)
 	return !fabs(cos(x))<DBL_EPSILON;
 
 }
+
 
 
