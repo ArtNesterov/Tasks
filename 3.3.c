@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include<math.h>
 #include <float.h>
 #include <stdbool.h>
@@ -9,7 +9,7 @@
  * @param x значение параметра x
  * @return рассчитанное значение коэффициента
  */
-double getRecurent(const int i, const double x);
+	double getRecurent(const int i, const double x);
 
 /**
  * @brief рассчитывает сумму членов последовательности с точностью e
@@ -71,10 +71,8 @@ int main(void) {
 	double e = getValue();
 	checkPositive(e);
 
-	printf("Значение функции в точке х равно: %.4lf\n", getFunction(x));
-
 	for (double x = start; x < end + step; x += step) {
-		printf("x = %.4lf, значение S = %.4lf\n", x, getSumE(e, x));
+		printf("функция равна %.4lf, x = %.4lf, значение S = %.4lf\n", getFunction(x), x, getSumE(e, x));
 	}
 
 	return 0;
@@ -125,13 +123,12 @@ double getRecurent(const int i, const double x)
 
 double getSumE(const double e, const double x)
 {
-	double current = 1.0;
+	double current = 1;
 	double result = current;
-	for (int i = 0; fabs(current) > e; i++)
+	for (int i = 1; fabs(current) > e; i++)
 	{
 		current *= getRecurent(i, x);
 		result += current;
 	}
 	return result;
-
 }
