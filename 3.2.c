@@ -88,7 +88,7 @@ double getSumN(const int n)
 {
     double current = 1.0;
     double result = current;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         current *= getRecurent(i);
         result += current;
@@ -114,7 +114,7 @@ double getSumE(const double e)
 {
     double current = 1.0;
     double result = 0;
-    for (int i = 0; fabs(current) >= e; i++)
+    for (int i = 1; fabs(current) >= e; i++)
     {
         result += current;
         current *= getRecurent(i);
@@ -122,4 +122,5 @@ double getSumE(const double e)
     return result;
 
 }
+
 
