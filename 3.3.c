@@ -62,13 +62,14 @@ int main(void) {
 	printf("Введите конечное значение диапазона: ");
 	double end = getValue();
 
+	checkDiapason(start, end);
 	printf("Введите шаг: ");
 	double step = getValue();
 	checkStep(step);
 
 	printf("Введите точность: ");
 	double e = getValue();
-	checkPositive(step);
+	checkPositive(e);
 
 	printf("Значение функции в точке х равно: %.4lf\n", getFunction(x));
 
@@ -124,12 +125,13 @@ double getRecurent(const int i, const double x)
 
 double getSumE(const double e, const double x)
 {
-	double current = 1;
+	double current = 1.0;
 	double result = current;
-	for (int i = 1; fabs(current) > e; i++)
+	for (int i = 0; fabs(current) > e; i++)
 	{
 		current *= getRecurent(i, x);
 		result += current;
 	}
 	return result;
+
 }
