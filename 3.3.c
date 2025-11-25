@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<math.h>
 #include <float.h>
-#include <stdbool.h>
 #include<stdlib.h>
 /**
  * @brief рассчитывает коэффициент рекуррентного выражения
@@ -132,3 +131,4 @@ double getSumE(const double e, const double x)
 	}
 	return result;
 }
+
