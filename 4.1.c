@@ -234,7 +234,7 @@ void replaceMinElement(int* copyArr, int* arr, const size_t size)
     }
 
     else {
-        printf("Замена на медианное невозможно, так как размер массива должен быть нечетным и больше 3: ");
+        printf("Замена на среднее невозможно, так как размер массива должен быть нечетным и больше 3: ");
     }
 }
 
@@ -269,3 +269,4 @@ int FindPair(int* copyArr, const size_t size) {
     return PairFound;
 
 }
+
