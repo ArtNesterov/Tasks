@@ -50,7 +50,10 @@ double getFunction(const double x);
  */
 double getValue();
 
-
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе 1
+ */
 int main(void) {
 	printf("Введите значение х: ");
 	double x = getValue();
@@ -96,7 +99,7 @@ void checkPositive(const double value)
 }
 
 double getFunction(const double x) {
-	return (exp(x) + exp(-x)) / 2;
+	return (exp(x) + exp(-x)) / 2.0;
 }
 
 void checkStep(const double step)
@@ -117,7 +120,7 @@ void checkDiapason(const double start, const double end) {
 
 double getRecurent(const int i, const double x)
 {
-	return (x * x) / ((2.0 * i + 2.0) * (2 * i + 1));
+	return (x * x) / ((2.0 * i + 2.0) * (2.0 * i + 1.0));
 }
 
 double getSumE(const double e, const double x)
@@ -131,4 +134,5 @@ double getSumE(const double e, const double x)
 	}
 	return result;
 }
+
 
