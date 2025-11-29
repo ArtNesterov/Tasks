@@ -63,6 +63,7 @@ void replaceMinElement(int* copyArr, int* arr, const size_t size);
  * @brief Возвращается индекс элементов, которые больше предыдущих
  * @param Copyarr копия массива
  * @param size размер массива
+ * @return полученные индексы
  */
 int OutputIndex(int* copyArr, const size_t size);
 
@@ -70,6 +71,7 @@ int OutputIndex(int* copyArr, const size_t size);
  * @brief Находит одинаковые по знаку пары элементов
  * @param Copyarr копия массива
  * @param size размер массива
+ * @return найденные пары
  */
 int FindPair(int* copyArr, const size_t size);
 
@@ -265,4 +267,5 @@ int FindPair(int* copyArr, const size_t size) {
     }
 
     return PairFound;
+
 }
