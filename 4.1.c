@@ -1,11 +1,11 @@
-#include<stdio.h>
+﻿#include<stdio.h>
 #include<stdlib.h>
 
 /**
  * @return Ввод данных типа int
  * @return Введенное значение
  */
-    int Value();
+int Value();
 
 /**
  * @brief Выводит текстовое сообщение о необходимости ввода размера массива, проверяет ввод на правильность, задаёт размер массива
@@ -227,14 +227,14 @@ void replaceMinElement(int* copyArr, int* arr, const size_t size)
         }
     }
 
-    if (size >= 2) {
+    if (size % 2 != 0 && size >= 3) {
         printf("Замена произведена: ");
         mid = sumArray(arr, size) / size;
         copyArr[minIndex] = mid;
     }
 
     else {
-        printf("Замена на среднее невозможно, так как размер массива должен больше 2: ");
+        printf("Замена на среднее невозможно, так как размер массива должен быть нечетным и больше 3: ");
     }
 }
 
@@ -269,5 +269,3 @@ int FindPair(int* copyArr, const size_t size) {
     return PairFound;
 
 }
-
-
