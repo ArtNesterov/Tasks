@@ -1,20 +1,97 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @return Ввод данных типа int
+ * @return Введенное значение
+ */
 int Value();
+
+/**
+ * @brief Выводит текстовое сообщение о необходимости ввода размера массива, проверяет ввод на правильность, задаёт размер массива
+ * @param message текстовое сообщение о необходимости ввода массива
+ * @return размер массива (количество его элементов)
+ */
 size_t getSize(char* message);
+
+/**
+ * @brief Считывает значения элементов массива
+ * @param arr массив
+ * @param size размер массива
+ */
 void fillArray(int** arr, const size_t rows, const size_t columns);
+
+/**
+ * @brief Заполняет массив случайными числами в пределах введённого пользователем диапазона
+ * @param arr массив
+ * @param size размер массива
+ */
 void fillRandom(int** arr, const size_t rows, const size_t columns);
+
+/**
+ * @brief Выводит массив (его элементы)
+ * @param arr массив
+ * @param size размер массива
+ */
 void printArray(int** arr, const size_t rows, const size_t columns);
+
+/**
+ * @brief Создание двумерного массива
+ * @param rows строки
+ * @param columns столбцы
+ */
 int** getArray(const size_t rows, const size_t columns);
+
+/**
+ * @brief Освобождение памяти
+ * @param arr массив
+ * @param rows строки
+ */
 int** freeArray(int** arr, const size_t rows);
+
+/**
+ * @brief Проверка, что начальное значение меньше конечного
+ * @param start начальное значение
+ * @param end конечное значение
+ */
 void checkRange(const int start, const int end);
 
+/**
+ * @brief Замена максимального элемента в каждом столбце на 0
+ * @param rows строки
+ * @param columns столбцы
+ * @param arr массив
+ * @param NewArray новый массив
+ */
 void ReplaceMax(const size_t rows, const size_t columns, int** arr, int** NewArray);
+
+/**
+ * @brief Подсчет количества строк с максимальным значением элемента по модулю
+ * @param arr массив
+ * @param rows строки
+ * @param columns столбцы
+ */
 size_t getCountRowsWithMax(int** arr, const size_t rows, const size_t columns);
+
+/**
+ * @brief Добавление первой строки после каждой строки с максимальным элементом
+ * @param rows строки
+ * @param columns столбцы
+ * @param arr массив
+ * @param NewArray новый второй массив
+ */
 void AddFirstRow(const size_t rows, const size_t columns, int** arr, int** NewArray2);
 
+/**
+ * @brief RANDOM - заполнение массива случайными числами в пределах введённого пользователем диапазона
+ * @brief MANUAL - заполнение массива вручную
+ */
 enum { RANDOM = 1, MANUAL };
+
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе 1.
+ */
 int main(void)
 {
 
