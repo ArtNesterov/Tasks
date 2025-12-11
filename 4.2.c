@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
 #include<float.h>
@@ -8,7 +8,7 @@
  * @return Ввод данных типа int
  * @return Введенное значение
  */
-int Value();
+    int Value();
 
 /**
  * @brief Выводит текстовое сообщение о необходимости ввода размера массива, проверяет ввод на правильность, задаёт размер массива
@@ -145,8 +145,8 @@ int Value()
     int value = 0;
     if (!scanf_s("%d", &value))
     {
-        printf("ERROR\n");
-        abort();
+        fprintf(stderr, "Error\n");
+        exit(1);
     }
     return value;
 }
@@ -158,8 +158,8 @@ size_t getSize(char* message)
     int value = Value();
     if (value <= 0)
     {
-        printf("ERROR");
-        abort();
+        fprintf(stderr, "Error");
+        exit(1);
     }
     return (size_t)value;
 }
@@ -191,9 +191,9 @@ void printArray(int* arr, const size_t size)
 void fillRandom(int* arr, const size_t size)
 {
     printf("начальное значение диапазона: ");
-    int start = Value();
+    const int start = Value();
     printf("конечное значение диапазона: ");
-    int end = Value();
+    const int end = Value();
     for (size_t i = 0; i < size; i++)
     {
         arr[i] = (rand() % (end - start + 1)) + start;
@@ -204,6 +204,13 @@ void fillRandom(int* arr, const size_t size)
 int* copyArray(const int* arr, const size_t size)
 {
     int* copyArr = malloc(sizeof(int) * size);
+
+    if (copyArr == NULL)
+    {
+        fprintf(stderr, "Error");
+        exit(1);
+    }
+
     for (size_t i = 0; i < size; i++)
     {
         copyArr[i] = arr[i];
@@ -266,7 +273,7 @@ void DeleteOdd(int* copyArr, const size_t size) {
     if (counter == size) {
         printf("Все элементы массива удалены");
     }
- 
+
     replaceArray(copyArr, size);
     printf("Массив с удаленными элементами:");
     for (size_t j = 0; j < size; j++) {
@@ -285,19 +292,20 @@ int NewArrayA(int* copyArr, const size_t size) {
 
     int* A = malloc(size * sizeof(int));
     if (A == NULL) {
-        printf("Error");
+        fprintf(stderr, "Error");
         exit(1);
     }
 
     for (size_t i = 0; i < size; i++) {
         size_t iElem = i;
-            if (copyArr[i] % 2 == 0) {
-                A[i] = copyArr[i] + (int)iElem;
-            }
-            else {
-                A[i] = copyArr[i] - (int)iElem;
-            }
+        if (copyArr[i] % 2 == 0) {
+            A[i] = copyArr[i] + (int)iElem;
+        }
+        else {
+            A[i] = copyArr[i] - (int)iElem;
+        }
     }
+
     printf("Массив А: ");
     printArray(A, size);
     free(A);
