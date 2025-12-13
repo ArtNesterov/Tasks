@@ -145,9 +145,9 @@ int Value()
 {
     int value = 0;
     if (!scanf_s("%d", &value))
-    {
-        printf("ERROR\n");
-        abort();
+     {
+        fprintf(stderr, "Error\n");
+        exit(1);
     }
     return value;
 }
@@ -330,3 +330,4 @@ size_t getCountRowsWithMax(int** arr, const size_t rows, const size_t columns)
 
     return counter;
 }
+
