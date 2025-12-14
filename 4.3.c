@@ -145,7 +145,7 @@ int Value()
 {
     int value = 0;
     if (!scanf_s("%d", &value))
-     {
+    {
         fprintf(stderr, "Error\n");
         exit(1);
     }
@@ -243,16 +243,16 @@ void checkRange(const int start, const int end)
 
 void ReplaceMax(const size_t rows, const size_t columns, int** arr, int** NewArray)
 {
-    for (size_t j = 0; j < columns; ++j) {
-        int max = arr[0][j];         
+    for (size_t j = 0; j < columns; j++) {
+        int max = arr[0][j];
 
-        for (size_t i = 1; i < rows; ++i) {
+        for (size_t i = 1; i < rows; i++) {
             if (arr[i][j] > max) {
                 max = arr[i][j];
             }
         }
 
-        for (size_t i = 0; i < rows; ++i) {
+        for (size_t i = 0; i < rows; i++) {
             if (arr[i][j] == max) {
                 NewArray[i][j] = 0;
             }
@@ -265,7 +265,7 @@ void ReplaceMax(const size_t rows, const size_t columns, int** arr, int** NewArr
 }
 
 
-void AddFirstRow(const size_t rows, const size_t columns, int** arr, int** NewArray2) { 
+void AddFirstRow(const size_t rows, const size_t columns, int** arr, int** NewArray2) {
     int maxAbs = abs(arr[0][0]);
     for (size_t i = 0; i < rows; i++) {
         for (size_t j = 0; j < columns; j++) {
@@ -284,7 +284,7 @@ void AddFirstRow(const size_t rows, const size_t columns, int** arr, int** NewAr
         k++;
 
         int MaxFound = 0;
-        for (size_t j = 0; j < columns; ++j) {
+        for (size_t j = 0; j < columns; j++) {
             if (abs(arr[i][j]) == maxAbs) {
                 MaxFound = 1;
                 break;
@@ -292,7 +292,7 @@ void AddFirstRow(const size_t rows, const size_t columns, int** arr, int** NewAr
         }
 
         if (MaxFound) {
-            for (size_t j = 0; j < columns; ++j) {
+            for (size_t j = 0; j < columns; j++) {
                 NewArray2[k][j] = arr[0][j];
             }
             k++;
@@ -330,4 +330,3 @@ size_t getCountRowsWithMax(int** arr, const size_t rows, const size_t columns)
 
     return counter;
 }
-
