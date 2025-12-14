@@ -48,7 +48,7 @@ void fillRandom(int* arr, const size_t size);
 int* copyArray(const int* arr, const size_t size);
 
 /**
- * @brief Заменяет минимальный элемент массива на среднее
+ * @brief Заменяет минимальный положительный элемент массива последним элементом
  * @param arr массив
  * @param Copyarr копия массива
  * @param size размер массива
@@ -57,7 +57,7 @@ void replaceMinElement(int* copyArr, const size_t size);
 
 
 /**
- * @brief Заменяет минимальный положительный элемент массива последним элементом
+ * @brief Заменяет исходные массив на массив с заменой элементов на 0
  * @param Copyarr копия массива
  * @param size размер массива
  */
@@ -70,7 +70,7 @@ int* replaceArray(int* copyArr, const size_t size);
  * @param Copyarr копия массива
  * @param size размер массива
  */
-int NewArrayA(int* copyArr, const size_t size);
+void NewArrayA(int* copyArr, const size_t size);
 
 
 
@@ -117,8 +117,7 @@ int main()
     default:
         printf("error");
         free(arr);
-        break;
-
+        exit(1);
     }
 
 
@@ -221,7 +220,7 @@ int* copyArray(const int* arr, const size_t size)
 
 void replaceMinElement(int* copyArr, const size_t size)
 {
-    int minElement = copyArr[0];
+    int minElement = INT_MAX;
     size_t minIndex = 0;
     int MinLast = 0;
     bool FindPositive = false;
@@ -270,21 +269,20 @@ void DeleteOdd(int* copyArr, const size_t size) {
     if (counter == 0) {
         printf("Нужных элементов не обнаружено \n");
     }
-    if (counter == size) {
-        printf("Все элементы массива удалены");
-    }
-
-    replaceArray(copyArr, size);
-    printf("Массив с удаленными элементами:");
-    for (size_t j = 0; j < size; j++) {
-        if (copyArr[j] != 0) {
-            printf("%d ", copyArr[j]);
+    else 
+    {
+        replaceArray(copyArr, size);
+        printf("Массив с удаленными элементами:");
+        for (size_t j = 0; j < size; j++) {
+            if (copyArr[j] != 0) {
+                printf("%d ", copyArr[j]);
+            }
         }
+        printf("\n");
     }
-    printf("\n");
 }
 
-int NewArrayA(int* copyArr, const size_t size) {
+void NewArrayA(int* copyArr, const size_t size) {
     if (size == 0) {
         printf("Массив С пуст, нельзя сформировать новый массив!\n");
         abort();
@@ -297,17 +295,15 @@ int NewArrayA(int* copyArr, const size_t size) {
     }
 
     for (size_t i = 0; i < size; i++) {
-        size_t iElem = i;
         if (copyArr[i] % 2 == 0) {
-            A[i] = copyArr[i] + (int)iElem;
+            A[i] = copyArr[i] + (int)i;
         }
         else {
-            A[i] = copyArr[i] - (int)iElem;
+            A[i] = copyArr[i] - (int)i;
         }
     }
 
     printf("Массив А: ");
     printArray(A, size);
     free(A);
-    return 1;
 }
